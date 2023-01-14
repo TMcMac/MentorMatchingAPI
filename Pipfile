@@ -8,6 +8,8 @@ requests = "*"
 flask = "*"
 flask-login = "*"
 flask-sqlalchemy = "*"
+email-validator = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 
