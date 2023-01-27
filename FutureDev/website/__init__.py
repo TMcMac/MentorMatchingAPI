@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from os import path
+
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -19,12 +19,12 @@ def create_app():
 
     from .models import User, Mentee, Mentor
 
-    create_database(app)
-
+    with app.app_context():
+        db.create_all()
 
     return app
 
-def create_database(app):
-    if not path('website/' + DB_NAME):
-        db.create_all(app=app)
-        print('Created Database!')
+# def create_database(app):
+#     if not path.exists('website/' + DB_NAME):
+#         db.create_all(app=app)
+#         print('Created Database!')

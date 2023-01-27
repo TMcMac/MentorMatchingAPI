@@ -1,0 +1,2 @@
+So I started on a whole web app for this project but it is better to just get an api up and running first so that it can be used right away. When the time come we can move the files in this folder back out to the main folder and continue work on new user signup and building a dashboard.
+https://youtu.be/dam0GPOAvVI?t=5975
