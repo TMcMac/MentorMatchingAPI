@@ -17,6 +17,7 @@ class User(db.Model, UserMixin):
     currentAffiliation = db.Column(db.String(150))
     languages = db.Column(db.String(150))
     timezone = db.Column(db.String(150))
+    lxaiUsername = db.Column(db.String(50))
     
 
 #Users who are mentors will have answers to mentro specific questions here
@@ -36,7 +37,13 @@ class Mentor(db.Model):
     skills = db.Column(db.String(200))
     research = db.Column(db.String(300))
     reviewerWorkshop = db.Column(db.String(50))
-    publishedWorkshop = db.Column(db.String(50))
+    publishedWorkshop = db.Column(db.Boolean)
+    reviewerTopTier = db.Column(db.String(50))
+    publishedTopTier = db.Column(db.Boolean)
+    reviewerAIJournals = db.Column(db.String(50))
+    publishedAIJournals = db.Column(db.Boolean)
+    conferencePreferences = db.Column(db.String(200))
+    conferenceOther = db.Column(db.String(200))
 
 
 
@@ -48,3 +55,16 @@ class Mentee(db.Model):
     linkToProfessional = db.Column(db.String(150))
     menteeMotivation = db.Column(db.String(150))
     motivationStatementLink = db.Column(db.String(300))
+    preferredOutcomes = db.Column(db.String(200))
+    careerGoals = db.Column(db.String(500))
+    skills = db.Column(db.String(200))
+    research = db.Column(db.String(300))
+    reviewerWorkshop = db.Column(db.String(50))
+    publishedWorkshop = db.Column(db.Boolean)
+    reviewerTopTier = db.Column(db.String(50))
+    publishedTopTier = db.Column(db.Boolean)
+    reviewerAIJournals = db.Column(db.String(50))
+    publishedAIJournals = db.Column(db.Boolean)
+    conferencePreferences = db.Column(db.String(200))
+    conferenceOther = db.Column(db.String(200))
+    openToReview = db.Column(db.Boolean)

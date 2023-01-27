@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, redirect, url4
 from email_validator import validate_email, EmailNotValidError
+from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
 
@@ -32,8 +34,11 @@ def sign_up():
         elif len(password) < 8:
             flash('Password must be 8 characters or greater.', category='error')
         else:
-            #add user to database
+            new_user = User(email=email, firstName=firstName, password=generate_password_hash(password, method='sha256'))
+            db.session.add(new_user)
+            db.session.commit()
             flash('Account created successfully!', category='success')
+
 
     return render_template("signup.html")
 
